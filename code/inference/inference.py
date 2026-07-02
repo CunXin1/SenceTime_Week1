@@ -6,9 +6,10 @@
     ③ generate        自回归逐 token 生成
     ④ decode          token id → 文字
 
-用法:
-    python inference.py [模型路径]              # 默认 Qwen2.5-1.5B
-    python inference.py [模型路径] --template   # 额外打印喂给模型的对话模板原文
+用法(在 Week1/ 根目录 + llm_exp 环境运行):
+    conda activate llm_exp && cd ~/SenceTime/Week1
+    python code/inference/inference.py [模型路径]              # 默认 Qwen2.5-1.5B
+    python code/inference/inference.py [模型路径] --template   # 额外打印对话模板原文
 """
 import sys
 import torch

@@ -4,7 +4,9 @@
 
 ⚠️ 第①步合并 Mac 能做;第②步 AWQ 量化依赖 autoawq(**CUDA 专属**),
    Mac 跑不了,请在 4090 上执行。改 MODEL 可换 7B。
-用法: conda activate llama_factory && python code/export_awq.py
+用法(在 Week1/ 根目录 + llama_factory 环境运行):
+    conda activate llama_factory && cd ~/SenceTime/Week1
+    python code/finetune/export_awq.py
 """
 import os
 import subprocess

@@ -1,7 +1,10 @@
 """Qwen LoRA / QLoRA 微调(基于 LLaMA-Factory)。
 
 改 MODEL 切换 1.5B / 7B;改 QLORA 切换 LoRA / QLoRA。
-用法: conda activate llama_factory && python code/finetune.py
+用法(在 Week1/ 根目录 + llama_factory 环境运行):
+    conda activate llama_factory && cd ~/SenceTime/Week1
+    python code/finetune/finetune.py                    # 默认 alpaca_zh_demo
+    python code/finetune/finetune.py identity_penguin   # 指定语料
 
 Mac(MPS,无 CUDA):QLORA=0(普通 LoRA)。
 4090(CUDA):QLORA=4(4-bit QLoRA)+ MODEL 换 7B(任务要求)。

@@ -5,6 +5,10 @@ Gemma-4 与 Qwen/Llama 不同,不能只用 AutoTokenizer,要用官方方式:
     - processor.apply_chat_template(..., enable_thinking=False) 关思考
     - processor.parse_response() 提取干净回答(自动处理 EOS/特殊符号)
 参考:HuggingFace 官方 model card (google/gemma-4-E2B-it)。
+
+用法(在 Week1/ 根目录 + llm_exp 环境运行):
+    conda activate llm_exp && cd ~/SenceTime/Week1
+    python code/inference/inference_gemma4.py
 """
 import torch
 from transformers import AutoProcessor, AutoModelForCausalLM

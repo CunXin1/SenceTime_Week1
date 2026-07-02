@@ -1,5 +1,7 @@
 """统计模型参数量,理解"参数堆在哪" (Day 3)。
-用法: python count_params.py [模型路径]
+用法(在 Week1/ 根目录 + llm_exp 环境运行):
+    conda activate llm_exp && cd ~/SenceTime/Week1
+    python code/analysis/count_params.py [模型路径]
 """
 import sys
 from collections import defaultdict

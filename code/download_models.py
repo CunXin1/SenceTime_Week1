@@ -1,7 +1,8 @@
 """从 HuggingFace 下载模型到 ./models/ 目录。
 
-用法:
-    python download_models.py            下载全部
+用法(在 Week1/ 根目录 + llm_exp 环境运行):
+    conda activate llm_exp && cd ~/SenceTime/Week1
+    python code/download_models.py            下载全部
 """
 import os
 import sys

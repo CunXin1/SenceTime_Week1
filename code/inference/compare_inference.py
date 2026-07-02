@@ -2,6 +2,10 @@
 
 逐个加载模型(省 16GB 内存),跑完 3 个问题就释放,最后按【问题】分组写 markdown。
 输出:deliverables/推理输出/4模型推理输出.md
+
+用法(在 Week1/ 根目录 + llm_exp 环境运行):
+    conda activate llm_exp && cd ~/SenceTime/Week1
+    python code/inference/compare_inference.py
 """
 import gc
 import torch

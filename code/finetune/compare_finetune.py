@@ -1,6 +1,8 @@
 """微调前后对比:基座模型 vs LoRA 微调后,问"你是谁"看身份变化。
 
-用法: conda activate llama_factory && python code/compare_finetune.py
+用法(在 Week1/ 根目录 + llama_factory 环境运行):
+    conda activate llama_factory && cd ~/SenceTime/Week1
+    python code/finetune/compare_finetune.py
 原理:基座不变,PeftModel 把 adapter 贴上去 → 对比同样问题的回答。
 """
 import torch
