@@ -11,7 +11,7 @@ import subprocess
 
 # ========= 可配置区 =========
 MODEL   = "./models/Qwen2.5-1.5B-Instruct"
-ADAPTER = "./saves/Qwen2.5-1.5B-Instruct-identity-lora"  # finetune.py 的输出
+ADAPTER = "./saves/Qwen2.5-1.5B-Instruct-identity_penguin-lora"  # finetune.py 的输出
 MERGED  = "./saves/merged"                                # 合并后的完整模型
 AWQ_OUT = "./saves/awq"                                   # AWQ 量化输出
 # ===========================

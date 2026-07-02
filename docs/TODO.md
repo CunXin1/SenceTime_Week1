@@ -126,14 +126,22 @@
 
 ---
 
-## 🟢 下周 4090 集中做(约半天~1天)
+## ✅ Day 5 已在 Mac 完成(超出原计划)
 
-- [ ] `nvidia-smi` 查规格 + 确定 7B QLoRA 选型 + 截图
+- [x] LLaMA-Factory 在 Mac MPS 上跑通 **普通 LoRA** 训练(验收❹)—— 无报错
+- [x] 两次微调:`alpaca_zh_demo`(3分48秒)、`identity_penguin`(1分39秒)
+- [x] 微调前后对比:身份改为 Penguin AI / Ruibo Sun
+- [x] TensorBoard 日志产出(`saves/*/runs/`)+ loss 曲线图
+- [x] 周报(纯中文)完成
+
+## 🟢 仍需 4090(下周,约半天)
+
+- [ ] `nvidia-smi` 查规格 + 截图
 - [ ] 装 CUDA 12.1 版 PyTorch → `torch.cuda.is_available()==True` + 截图(验收❶)
-- [ ] (可选)用 7B 复跑 Day 2 推理
-- [ ] 装 LLaMA-Factory,跑通 identity 数据集训练(验收❹)+ 训练日志
-- [ ] TensorBoard 可视化训练曲线(Day 5.2)
-- [ ] 补齐截图/日志进周报,最终提交(验收❺)
+- [ ] 装 vLLM(OpenCompass 可选)
+- [ ] 用 **7B QLoRA** 复跑训练(`finetune.py` 改 MODEL=7B、QLORA=4)
+- [ ] AWQ 4-bit 压缩(`export_awq.py`)
+- [ ] 补齐 nvidia-smi 截图,提交最终报告
 
 ---
 
@@ -148,12 +156,12 @@
 | 3 | 《Qwen2.5 架构分析报告》 | `.md`/`.pdf` | 🍎 |
 | 3 | 参数统计脚本 | `.py` | 🍎 |
 | 4 | Tokenizer 实验(10+ 用例) | `.ipynb` | 🍎 |
-| 5 | 训练跑通日志 | `.log`/截图 + TensorBoard | 🟢 |
-| 5 | 《第1周总结报告》 | `.md`/`.pdf` | 初稿🍎 / GPU 章节🟢 |
+| 5 | 训练跑通日志 + LoRA微调报告 | `.md` + loss图 | ✅🍎 |
+| 5 | 《第1周总结报告》 | `.md` | ✅🍎 |
 
 ## ✅ 验收标准对照
-- ❶ CUDA 可用 → 🟢 4090
-- ❷ 基座模型能对话 → 🍎 Mac(1.5B)现可达成
-- ❸ 口头解释 RoPE / GQA → 🍎 现在准备(见阶段 3)
-- ❹ LLaMA-Factory demo 无报错 → 🟢 4090
-- ❺ 周报提交 → 初稿🍎 + 下周补齐
+- ❶ CUDA 可用 → 🟢 4090(Mac 用 MPS)
+- ❷ 基座模型能对话 → ✅🍎 已达成
+- ❸ 口头解释 RoPE / GQA → ✅🍎 已完成
+- ❹ LLaMA-Factory demo 无报错 → ✅🍎 Mac MPS 上 LoRA 训练成功
+- ❺ 周报提交 → ✅🍎 已完成(纯中文)
