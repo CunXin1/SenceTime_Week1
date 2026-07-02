@@ -4,6 +4,12 @@
 # 模型权重太大,不进 git
 models/
 
+# 微调结果(adapter/合并模型/训练日志),体积大不进 git
+saves/
+
+# 临时生成的合并配置
+code/finetune/_merge_tmp.yaml
+
 # Python 缓存
 __pycache__/
 *.pyc

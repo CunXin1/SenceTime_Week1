@@ -17,15 +17,21 @@ AWQ_OUT = "./saves/awq"                                   # AWQ 量化输出
 # ===========================
 
 # ① 合并 LoRA 适配器到基座,得到完整 fp16 模型(Mac 可做)
-subprocess.run([
-    "llamafactory-cli", "export",
-    f"model_name_or_path={MODEL}",
-    f"adapter_name_or_path={ADAPTER}",
-    "template=qwen",
-    f"export_dir={MERGED}",
-    "export_size=2",
-    "trust_remote_code=true",
-], check=True)
+# llamafactory-cli export 需要 yaml 配置(不吃 key=value),这里动态生成
+cfg = {
+    "model_name_or_path": os.path.abspath(MODEL),
+    "adapter_name_or_path": os.path.abspath(ADAPTER),
+    "template": "qwen",
+    "finetuning_type": "lora",
+    "export_dir": os.path.abspath(MERGED),
+    "export_size": 2,
+    "trust_remote_code": True,
+}
+cfg_path = "code/finetune/_merge_tmp.yaml"
+with open(cfg_path, "w") as f:
+    for k, v in cfg.items():
+        f.write(f"{k}: {str(v).lower() if isinstance(v, bool) else v}\n")
+subprocess.run(["llamafactory-cli", "export", cfg_path], check=True)
 print(f"✅ LoRA 已合并 -> {MERGED}")
 
 # ② AWQ 4-bit 量化(需 CUDA + `pip install autoawq`,请在 4090 上运行)
