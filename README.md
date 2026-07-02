@@ -45,15 +45,15 @@ Week1/
 ```bash
 # 推理 / 分析(llm_exp 环境)
 conda activate llm_exp
-python code/推理/inference.py                         # 默认 Qwen2.5
-python code/推理/inference_gemma4.py                  # Gemma-4
-python code/分析/count_params.py ./models/Qwen3-4B
+python code/inference/inference.py                    # 默认 Qwen2.5
+python code/inference/inference_gemma4.py             # Gemma-4
+python code/analysis/count_params.py ./models/Qwen3-4B
 
 # 微调(llama_factory 环境)
 conda activate llama_factory
-python code/微调/finetune.py                          # LoRA 训练(alpaca_zh_demo)
-python code/微调/finetune.py identity_penguin         # 指定语料
-python code/微调/compare_finetune.py                  # 微调前后对比
+python code/finetune/finetune.py                      # LoRA 训练(alpaca_zh_demo)
+python code/finetune/finetune.py identity_penguin     # 指定语料
+python code/finetune/compare_finetune.py              # 微调前后对比
 ```
 
 ## 进度对照(验收标准)
