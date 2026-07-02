@@ -1,0 +1,10 @@
+# 密钥 —— 绝不提交
+.env
+
+# 模型权重太大,不进 git
+models/
+
+# Python 缓存
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

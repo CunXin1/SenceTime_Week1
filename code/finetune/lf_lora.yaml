@@ -1,0 +1,34 @@
+# LLaMA-Factory LoRA 基础配置(被 train.sh 覆盖 model/dataset/output)。
+# 单独跑:llamafactory-cli train code/lf_lora.yaml
+# Mac 安全设置:fp32、小 batch。目标=验证训练管线跑通(Day 5.1)。
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora        # 普通 LoRA;QLoRA 由 train.sh 的 quantization_bit 追加(仅 CUDA)
+lora_rank: 8
+lora_target: all
+trust_remote_code: true
+
+### dataset(model_name_or_path / dataset / dataset_dir / output_dir 由 train.sh 传入)
+template: qwen               # Qwen 系列用 qwen 模板
+cutoff_len: 1024
+max_samples: 100             # 只取少量,快速验证管线;正式训练调大或删除
+overwrite_cache: true
+
+### output
+logging_steps: 2
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+report_to: tensorboard       # Day 5.2:TensorBoard 可视化
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: false                  # MPS 对 bf16/fp16 训练不稳,用 fp32;4090 上可改 bf16: true
+fp16: false
